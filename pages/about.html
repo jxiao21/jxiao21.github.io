@@ -1,45 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Justin's Website</title>
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Justin Xiao</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   Helvetica, Arial, sans-serif;
+      color: #2d2d2d;
+      background: #f7f8fa;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; }
 
-    <body>
-        <img src="../images/profile.JPG" width="200" height="260" alt="It's me!">
-        <h1>Get to know me!</h1>
-        <!--About Section-->
-        <h2>About Me</h2>
-        <h3>Background</h3>
-        <p>My name is Justin Xiao. I was born in Troy, MI, and I graduated high school in 2021. I went to Troy High School</p>
-        <h3>Where am I now?</h3>
-        <p>Right not, I am a sophomore at the <b>University of Michigan</b> studying <i>computer science</i>. 
-            I am interested in <strong>web development</strong>, and I would like to learn more about other 
-            areas of computer science as well!</p>
-        <h3>What do I want to do in the future?</h3>
-        <p>I want to become a full time <strong>software engineer</strong> in the future. I've accepted an offer
-            to become a full time technology intern at <strong>Carmax</strong> for the summer of 2023, where I hope
-            to grow my skillset and become a better programmer and problem solver.
-        </p>
-        <p>I'm not sure which area of software engineering I would work best in yet, which is why
-            I'm <em>very</em> open to learning more about different fields.
-        </p>
-        <h3>Things I like to do</h3>
-        <p>Outside of coding, I am a huge sports fan. Some teams I'm a fan of:</p>
-        <ul>
-            <li>Michigan Wolverines (Go Blue!)</li>
-            <li>Detroit Lions</li>
-            <li>Detroit Pistons</li>
-            <li>FC Barcelona</li>
-            <li>Detroit Tigers</li>
-        </ul>
-        <p>I also like listening to music! Here are my top 5 favorite albums that I've listed to all the way through:</p>
-        <ol>
-            <li>To Pimp a Butterfly - Kendrick Lamar</li>
-            <li>Nurture - Porter Robinson</li>
-            <li>good kid, m.A.A.d city - Kendrick Lamar</li>
-            <li>The Forever Story - JID</li>
-            <li>An Evening With Silk Sonic - Silk Sonic</li>
-        </ol>
-    </body>
+    /* ── Nav ──────────────────────────────────────────────────────────── */
+    nav {
+      background: #1a1f36;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .nav-brand { color: #fff; font-size: 1.1rem; font-weight: 700; }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      color: #c5cae9;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: #7986cb; }
+
+    /* ── Hero ─────────────────────────────────────────────────────────── */
+    .about-hero {
+      background: linear-gradient(135deg, #1a1f36 0%, #2c3364 100%);
+      color: #fff;
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+    }
+    .about-hero img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 4px solid #7986cb;
+      margin-bottom: 1.2rem;
+    }
+    .about-hero h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .about-hero p { color: #9fa8da; font-size: 1.05rem; }
+
+    /* ── Content ──────────────────────────────────────────────────────── */
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .about-content h2 {
+      font-size: 1.7rem;
+      color: #1a1f36;
+      margin-bottom: 0.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    .about-content h2::after {
+      content: "";
+      display: block;
+      height: 4px;
+      width: 50px;
+      background: #7986cb;
+      border-radius: 2px;
+      margin-top: 6px;
+      margin-bottom: 1.5rem;
+    }
+    .about-content h3 {
+      font-size: 1.1rem;
+      color: #1a1f36;
+      margin-top: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+    .about-content p, .about-content li {
+      color: #4a4a4a;
+      margin-bottom: 0.5rem;
+    }
+    .about-content ul, .about-content ol {
+      padding-left: 1.4rem;
+    }
+    .about-content li { margin-bottom: 0.3rem; }
+
+    /* ── Footer ───────────────────────────────────────────────────────── */
+    footer {
+      background: #1a1f36;
+      color: #5c6494;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+    footer a { color: #7986cb; }
+    footer a:hover { color: #c5cae9; }
+
+    /* ── Responsive ───────────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-brand">Justin Xiao</span>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="interests.html">Interests</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="about-hero">
+    <img src="../images/profile.JPG" alt="Justin Xiao">
+    <h1>Justin Xiao</h1>
+    <p>Software Engineer&nbsp;|&nbsp;University of Michigan</p>
+  </div>
+
+  <div class="about-content">
+    <h2>About Me</h2>
+
+    <h3>Background</h3>
+    <p>My name is Justin Xiao. I was born in Troy, MI, and I graduated high school in 2021. I went to Troy High School.</p>
+
+    <h3>Where am I now?</h3>
+    <p>Right now, I am a student at the <strong>University of Michigan</strong> studying <em>Computer Science</em>.
+       I am interested in <strong>web development</strong>, and I would like to learn more about other
+       areas of computer science as well!</p>
+
+    <h3>What do I want to do in the future?</h3>
+    <p>I want to become a full-time <strong>software engineer</strong>. I've accepted an offer
+       to become a full-time technology intern at <strong>CarMax</strong> for the summer of 2023, where I hope
+       to grow my skillset and become a better programmer and problem solver.
+    </p>
+    <p>I'm not sure which area of software engineering I would work best in yet, which is why
+       I'm <em>very</em> open to learning more about different fields.
+    </p>
+
+    <h3>Things I like to do</h3>
+    <p>Outside of coding, I am a huge sports fan. Some teams I'm a fan of:</p>
+    <ul>
+      <li>Michigan Wolverines (Go Blue!)</li>
+      <li>Detroit Lions</li>
+      <li>Detroit Pistons</li>
+      <li>FC Barcelona</li>
+      <li>Detroit Tigers</li>
+    </ul>
+
+    <p>I also like listening to music! Here are my top 5 favorite albums that I've listened to all the way through:</p>
+    <ol>
+      <li>To Pimp a Butterfly — Kendrick Lamar</li>
+      <li>Nurture — Porter Robinson</li>
+      <li>good kid, m.A.A.d city — Kendrick Lamar</li>
+      <li>The Forever Story — JID</li>
+      <li>An Evening With Silk Sonic — Silk Sonic</li>
+    </ol>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Justin Xiao &nbsp;|&nbsp;
+      <a href="https://github.com/jxiao21" target="_blank" rel="noopener">GitHub</a> &nbsp;|&nbsp;
+      <a href="https://www.linkedin.com/in/justin-xiao21/" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+  </footer>
+
+</body>
 </html>

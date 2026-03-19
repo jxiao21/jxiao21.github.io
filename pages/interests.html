@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interests — Justin Xiao</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   Helvetica, Arial, sans-serif;
+      color: #2d2d2d;
+      background: #f7f8fa;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; }
+
+    /* ── Nav ──────────────────────────────────────────────────────────── */
+    nav {
+      background: #1a1f36;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .nav-brand { color: #fff; font-size: 1.1rem; font-weight: 700; }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      color: #c5cae9;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: #7986cb; }
+
+    /* ── Page hero ────────────────────────────────────────────────────── */
+    .page-hero {
+      background: linear-gradient(135deg, #1a1f36 0%, #2c3364 100%);
+      color: #fff;
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+    }
+    .page-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .page-hero p { color: #9fa8da; font-size: 1.05rem; }
+
+    /* ── Page content wrapper ─────────────────────────────────────────── */
+    .page-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    /* ── Interest section ─────────────────────────────────────────────── */
+    .interest-section {}
+    .interest-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.2rem;
+    }
+    .interest-icon {
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+    .interest-header h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1a1f36;
+      position: relative;
+    }
+    .interest-header h2::after {
+      content: "";
+      display: block;
+      height: 4px;
+      width: 40px;
+      background: #7986cb;
+      border-radius: 2px;
+      margin-top: 5px;
+    }
+    .interest-body {
+      color: #4a4a4a;
+    }
+    .interest-body p { margin-bottom: 0.8rem; }
+    .interest-body p:last-child { margin-bottom: 0; }
+
+    /* ── Columns layout (2-up inside a section) ───────────────────────── */
+    .interest-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    /* ── Styled lists ─────────────────────────────────────────────────── */
+    .interest-body ul,
+    .interest-body ol {
+      padding-left: 1.4rem;
+      margin-top: 0.4rem;
+      margin-bottom: 0.8rem;
+    }
+    .interest-body li { margin-bottom: 0.3rem; }
+
+    /* ── Sub-heading inside a section ────────────────────────────────── */
+    .interest-body h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #1a1f36;
+      margin-top: 1.4rem;
+      margin-bottom: 0.3rem;
+    }
+    .interest-body h3:first-child { margin-top: 0; }
+
+    /* ── Tag chips ────────────────────────────────────────────────────── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
+    .tag {
+      background: #e8eaf6;
+      color: #3949ab;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 3px 12px;
+      border-radius: 12px;
+    }
+
+    /* ── Divider ──────────────────────────────────────────────────────── */
+    .divider {
+      border: none;
+      border-top: 1px solid #e0e4ef;
+    }
+
+    /* ── Footer ───────────────────────────────────────────────────────── */
+    footer {
+      background: #1a1f36;
+      color: #5c6494;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+    footer a { color: #7986cb; }
+    footer a:hover { color: #c5cae9; }
+
+    /* ── Responsive ───────────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .interest-cols { grid-template-columns: 1fr; gap: 1rem; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────────────────────────────── -->
+  <nav>
+    <span class="nav-brand">Justin Xiao</span>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="interests.html" class="active">Interests</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Page hero ───────────────────────────────────────────────────── -->
+  <div class="page-hero">
+    <h1>My Interests</h1>
+    <p>Things I love outside of code</p>
+  </div>
+
+  <!-- ── Content ─────────────────────────────────────────────────────── -->
+  <div class="page-content">
+
+    <!-- Worship ──────────────────────────────────────────────────────── -->
+    <section class="interest-section" id="worship">
+      <div class="interest-header">
+        <span class="interest-icon">✝️</span>
+        <h2>Worship &amp; Faith</h2>
+      </div>
+      <div class="interest-body">
+        <p>
+          <!-- ✏️ Write about your faith, church community, worship style, favorite
+               worship artists/songs, how faith shapes your life, etc. -->
+          Faith is an important part of my life. [Write about what worship and your
+          faith community mean to you here.]
+        </p>
+        <h3>Worship Music I Love</h3>
+        <p>
+          <!-- ✏️ Add your favorite worship artists, albums, or songs -->
+          [Add your favorite worship artists or songs here.]
+        </p>
+        <div class="tags">
+          <!-- ✏️ Add genre/style tags, e.g. Contemporary Worship, Gospel, CCM -->
+          <span class="tag">Contemporary Worship</span>
+          <span class="tag">Gospel</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Sports ───────────────────────────────────────────────────────── -->
+    <section class="interest-section" id="sports">
+      <div class="interest-header">
+        <span class="interest-icon">🏆</span>
+        <h2>Sports</h2>
+      </div>
+      <div class="interest-body">
+        <p>
+          I'm a huge sports fan. Whether it's football, basketball, soccer, or
+          baseball, there's almost always a game I'm watching or a score I'm
+          checking.
+        </p>
+        <div class="interest-cols">
+          <div>
+            <h3>Teams I Root For</h3>
+            <ul>
+              <li>🏈 Michigan Wolverines — <em>Go Blue!</em></li>
+              <li>🏈 Detroit Lions</li>
+              <li>🏀 Detroit Pistons</li>
+              <li>⚽ FC Barcelona</li>
+              <li>⚾ Detroit Tigers</li>
+            </ul>
+          </div>
+          <div>
+            <h3>My Thoughts</h3>
+            <p>
+              <!-- ✏️ Write about your most memorable sports moments, favorite players,
+                   or anything else sports-related -->
+              [Write about your favorite sports moments, players, or recent
+              games you've enjoyed here.]
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Music ────────────────────────────────────────────────────────── -->
+    <section class="interest-section" id="music">
+      <div class="interest-header">
+        <span class="interest-icon">🎵</span>
+        <h2>Music</h2>
+      </div>
+      <div class="interest-body">
+        <p>
+          Music is something I'm really passionate about — I'm always hunting for
+          great albums and artists across a lot of genres.
+        </p>
+        <div class="interest-cols">
+          <div>
+            <h3>Top 5 Favorite Albums</h3>
+            <ol>
+              <li>To Pimp a Butterfly — Kendrick Lamar</li>
+              <li>Nurture — Porter Robinson</li>
+              <li>good kid, m.A.A.d city — Kendrick Lamar</li>
+              <li>The Forever Story — JID</li>
+              <li>An Evening With Silk Sonic — Silk Sonic</li>
+            </ol>
+          </div>
+          <div>
+            <h3>Currently Into</h3>
+            <p>
+              <!-- ✏️ Write about what you're currently listening to, recent
+                   discoveries, concerts you've been to, etc. -->
+              [Write about what you're currently listening to or recently
+              discovered here.]
+            </p>
+            <h3>Genres</h3>
+            <div class="tags">
+              <!-- ✏️ Update/add genre tags -->
+              <span class="tag">Hip-Hop</span>
+              <span class="tag">Electronic</span>
+              <span class="tag">R&amp;B</span>
+              <span class="tag">Neo-Soul</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Other interests ──────────────────────────────────────────────── -->
+    <section class="interest-section" id="other">
+      <div class="interest-header">
+        <span class="interest-icon">💡</span>
+        <h2>Other Interests</h2>
+      </div>
+      <div class="interest-body">
+        <p>
+          <!-- ✏️ Add anything else you enjoy — movies, books, games, food, travel,
+               art, fitness, etc. You can also rename this section! -->
+          [Add other things you enjoy here — could be movies, books, video games,
+          travel, food, fitness, or anything else!]
+        </p>
+      </div>
+    </section>
+
+  </div><!-- /page-content -->
+
+  <!-- ── Footer ──────────────────────────────────────────────────────── -->
+  <footer>
+    <p>&copy; 2024 Justin Xiao &nbsp;|&nbsp;
+      <a href="https://github.com/jxiao21" target="_blank" rel="noopener">GitHub</a> &nbsp;|&nbsp;
+      <a href="https://www.linkedin.com/in/justin-xiao21/" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+  </footer>
+
+</body>
+</html>
