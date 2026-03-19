@@ -27,13 +27,19 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
     .nav-brand { color: #fff; font-size: 1.1rem; font-weight: 700; }
-    .nav-back {
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
       color: #c5cae9;
       font-size: 0.9rem;
       font-weight: 500;
       transition: color 0.2s;
     }
-    .nav-back:hover { color: #7986cb; }
+    .nav-links a:hover,
+    .nav-links a.active { color: #7986cb; }
 
     /* ── Hero ─────────────────────────────────────────────────────────── */
     .about-hero {
@@ -106,13 +112,24 @@
     }
     footer a { color: #7986cb; }
     footer a:hover { color: #c5cae9; }
+
+    /* ── Responsive ───────────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .nav-links { gap: 1rem; }
+    }
   </style>
 </head>
 <body>
 
   <nav>
     <span class="nav-brand">Justin Xiao</span>
-    <a class="nav-back" href="../index.html">← Back to Home</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="interests.html">Interests</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
   </nav>
 
   <div class="about-hero">
